@@ -156,6 +156,17 @@
         </div>
 
         <div class="form-group">
+          <label for="ieeemembership">IEEE Membership Number</label><br />
+          <input
+            type="text"
+            id="ieeemembershipnum"
+            name="ieeemembershipnum"
+            class = "form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
           <label for="paperId">Paper ID:</label>
           <input
             type="text"
@@ -190,7 +201,7 @@
           />
         </div>
 
-        <button type="button" id="calculateFeeBtn" class="btn btn-primary">
+        <button type="button" id="calculateFeeBtn1" class="btn btn-primary">
           Calculate Fee
         </button>
         <p id="feeDisplay" class="mt-2">Total Fee: ₹0</p>
@@ -205,23 +216,44 @@
     </div>
 
     <script>
-        var fee = 0;
+        
         var isFeeCalculated = false; // Track if the fee has been calculated
     
         // Calculate the registration fee
         document
-          .getElementById("calculateFeeBtn")
+          .getElementById("calculateFeeBtn1")
           .addEventListener("click", function () {
             var category = document.getElementById("category").value;
             var membership = document.querySelector(
               'input[name="membership"]:checked'
             ).value;
             var pages = parseInt(document.getElementById("pages").value);
+            // I'm taking these values to set up the fee calculation according to the date
+            var currentDate = new Date();
+            var earlyDate = currentDate.getUTCDate();
+            var earlyMonth = currentDate.getUTCMonth();
+            var earlyYear = currentDate.getUTCFullYear();
+
+            var IEEEstudentresearch, nonIEEEstudentresearch, IEEEprofessional, nonIEEEprofessional;
+
+            if(earlyMonth === 9 && earlyYear === 2024){
+              var IEEEstudentresearch = 7000;
+              var nonIEEEstudentresearch = 8000;
+              var IEEEprofessional = 9000;
+              var nonIEEEprofessional = 10500;
+            } else {
+              var IEEEstudentresearch = 8000;
+              var nonIEEEstudentresearch = 9000;
+              var IEEEprofessional = 10500;
+              var nonIEEEprofessional = 11500;
+            }
+
+            var fee = 0;
     
             if (category.includes("Student/Research Scholar")) {
-              fee = membership === "IEEE" ? 7000 : 8000;
+              fee = membership === "IEEE" ? IEEEstudentresearch : nonIEEEstudentresearch;
             } else if (category.includes("Professional")) {
-              fee = membership === "IEEE" ? 9000 : 10500;
+              fee = membership === "IEEE" ? IEEEprofessional : nonIEEEprofessional;
             } else if (category === "Attendee with Tutorials") {
               fee = 2000;
             }
