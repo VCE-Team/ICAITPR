@@ -231,12 +231,12 @@
             // I'm taking these values to set up the fee calculation according to the date
             var currentDate = new Date();
             var earlyDate = currentDate.getUTCDate();
-            var earlyMonth = currentDate.getUTCMonth();
+            var earlyMonth = currentDate.getUTCMonth() + 1;
             var earlyYear = currentDate.getUTCFullYear();
 
             var IEEEstudentresearch, nonIEEEstudentresearch, IEEEprofessional, nonIEEEprofessional;
 
-            if(earlyMonth === 9 && earlyYear === 2024){
+            if(earlyMonth === 10 && earlyYear === 2024){
               var IEEEstudentresearch = 7000;
               var nonIEEEstudentresearch = 8000;
               var IEEEprofessional = 9000;
