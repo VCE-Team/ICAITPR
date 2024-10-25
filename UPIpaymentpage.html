@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPI Payment Details</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+    .container h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .upi-info {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .upi-info p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .upi-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .submission-info {
+      margin-top: 20px;
+      color: #333;
+      font-size: 1rem;
+    }
+    .submit-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #28a745;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>UPI Payment Details</h2>
+    <div class="upi-info">
+      <p><strong>A/C No.:</strong> 141010100043385</p>
+      <p><strong>IFSC Code:</strong> UBIN0814105</p>
+      <p><strong>Bank:</strong> Union Bank of India</p>
+      <p><strong>Branch:</strong> Shamshabad Branch</p>
+    </div>
+    <img src="assets/UPI.png" alt="UPI QR Code" class="upi-image" />
+    
+    <!-- Screenshot submission section -->
+    <div class="submission-info">
+      <p>Once the payment is done, please submit the screenshot in the link below:</p>
+      <a href="https://forms.gle/BmnFZVxcvpqeiShA6" class="submit-link">Submit Payment Screenshot</a>
+    </div>
+
+    <!-- Back button -->
+    <a href="index.html" class="back-btn">Go Back</a>
+  </div>
+</body>
+</html>

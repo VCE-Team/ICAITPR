@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
+
+      @media (max-width: 576px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .form-control,
+        .form-select {
+          font-size: 0.9rem;
+        }
+
+        button {
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        #feeDisplay {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-width: 576px) {
+        h2 {
+          font-size: 2rem;
+        }
+
+        .form-control,
+        .form-select {
+          font-size: 1rem;
+        }
+
+        button {
+          width: auto;
+          margin-top: 10px;
+        }
+
+        #feeDisplay {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Indian Registration Payment</h2>
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="category">Registration Category:</label>
+          <select id="category" name="category" class="form-control" required>
+            <option value="Student/Research Scholar (IEEE Member)">
+              Student/Research Scholar (IEEE Member)
+            </option>
+            <option value="Student/Research Scholar (Non-IEEE Member)">
+              Student/Research Scholar (Non-IEEE Member)
+            </option>
+            <option value="Professional (IEEE Member)">
+              Professional (IEEE Member)
+            </option>
+            <option value="Professional (Non-IEEE Member)">
+              Professional (Non-IEEE Member)
+            </option>
+            <option value="Attendee with Tutorials">
+              Attendee with Tutorials
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input
+            type="text"
+            id="designation"
+            name="designation"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="organization">Organization:</label>
+          <input
+            type="text"
+            id="organization"
+            name="organization"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>IEEE Member:</label><br />
+          <input
+            type="radio"
+            id="ieee"
+            name="membership"
+            value="IEEE"
+            required
+          />
+          Yes
+          <input
+            type="radio"
+            id="non-ieee"
+            name="membership"
+            value="Non-IEEE"
+            required
+          />
+          No
+        </div>
+
+        <div class="form-group">
+          <label for="paperId">Paper ID:</label>
+          <input
+            type="text"
+            id="paperId"
+            name="paperId"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="paperTitle">Paper Title:</label>
+          <input
+            type="text"
+            id="paperTitle"
+            name="paperTitle"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="pages">Number of Pages (max 8):</label>
+          <input
+            type="number"
+            id="pages"
+            name="pages"
+            class="form-control"
+            max="8"
+            min="1"
+            required
+          />
+        </div>
+
+        <button type="button" id="calculateFeeBtn" class="btn btn-primary">
+          Calculate Fee
+        </button>
+        <p id="feeDisplay" class="mt-2">Total Fee: ₹0</p>
+        <button type="button" id="makePaymentBtn" class="btn btn-success">
+          Razorpay Card Payment
+        </button>
+        <button type="button" id="upiPaymentBtn" class="btn btn-info">
+          UPI Payment
+        </button>
+      </form>
+    </div>
+
+    <script>
+        var fee = 0;
+        var isFeeCalculated = false; // Track if the fee has been calculated
+    
+        // Calculate the registration fee
+        document
+          .getElementById("calculateFeeBtn")
+          .addEventListener("click", function () {
+            var category = document.getElementById("category").value;
+            var membership = document.querySelector(
+              'input[name="membership"]:checked'
+            ).value;
+            var pages = parseInt(document.getElementById("pages").value);
+    
+            if (category.includes("Student/Research Scholar")) {
+              fee = membership === "IEEE" ? 7000 : 8000;
+            } else if (category.includes("Professional")) {
+              fee = membership === "IEEE" ? 9000 : 10500;
+            } else if (category === "Attendee with Tutorials") {
+              fee = 2000;
+            }
+    
+            if (category !== "Attendee with Tutorials" && pages > 6) {
+              var extraPages = pages - 6;
+              fee += extraPages * 1000;
+            }
+    
+            document.getElementById("feeDisplay").innerText = "Total Fee: ₹" + fee;
+            isFeeCalculated = true; // Mark as calculated
+          });
+    
+        // Check if the fee calculation button was clicked
+        function checkFeeCalculation() {
+          if (!isFeeCalculated) {
+            alert("Please calculate the fee before proceeding with payment.");
+            return false;
+          }
+          return true;
+        }
+    
+        // UPI Payment - Redirect to UPIpaymentpage.html
+        document
+          .getElementById("upiPaymentBtn")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+    
+            if (!checkFeeCalculation()) return;
+    
+            // Redirect to UPI payment page
+            window.location.href = "UPIpaymentpage.html";
+          });
+    
+
+      // Razorpay Payment Integration
+      // Razorpay Payment Integration
+      // Razorpay Payment Integration
+      document
+        .getElementById("makePaymentBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Check if all required fields are filled
+          const form = document.getElementById("paymentForm");
+          if (!form.checkValidity()) {
+            alert("Please fill in all required fields.");
+            return; // Prevent payment if fields are not filled
+          }
+
+          var options = {
+            key: "rzp_test_rhCVCAC0wf7m91", // Enter the Key ID generated from Razorpay Dashboard
+            amount: fee * 100, // Amount is in currency subunits
+            currency: "INR",
+            name: "Conference Registration",
+            description: "Indian Registration Fee",
+            handler: function (response) {
+              alert("Payment successful!");
+
+              // Send form data to server and email
+              var formData = new FormData(form);
+              formData.append(
+                "razorpay_payment_id",
+                response.razorpay_payment_id
+              );
+
+              // Submit data to server-side script (e.g., PHP script to send emails)
+              fetch("send_email.php", {
+                method: "POST",
+                body: formData,
+              })
+                .then((response) => response.text())
+                .then((result) => {
+                  console.log(result);
+                  alert("Registration complete, confirmation email sent!");
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                });
+            },
+            prefill: {
+              name: document.getElementById("name").value,
+              email: document.getElementById("email").value,
+              contact: document.getElementById("phone").value,
+            },
+            theme: {
+              color: "#3399cc",
+            },
+            modal: {
+              ondismiss: function () {
+                alert("Payment cancelled.");
+              },
+            },
+          };
+
+          var rzp1 = new Razorpay(options);
+          rzp1.open();
+        });
+    </script>
+  </body>
+</html>
