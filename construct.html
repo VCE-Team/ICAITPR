@@ -1,145 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keynote Speakers - ICAITPR 2025</title>
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #2c3e50;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            line-height: 1.6;
+        }
+
+        .page-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), transparent);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
+            position: relative;
+            z-index: 1;
         }
 
-        .speakers {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        .speaker-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
         }
 
-        .speakers h2 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 40px;
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .speaker-image {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            overflow: hidden;
+        }
+
+        .speaker-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover .speaker-image img {
+            transform: scale(1.05);
+        }
+
+        .speaker-info {
+            padding: 2rem;
+        }
+
+        .speaker-name {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-topic {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .speaker-topic h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .abstract-section {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .abstract-section h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .abstract-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #505b6b;
+            text-align: justify;
+        }
+
+        .achievements {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .achievements h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            min-width: 20px;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #505b6b;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            margin-right: 0.75rem;
+            width: 20px;
             text-align: center;
         }
 
-        .card {
+        .expand-btn {
+            color: var(--accent-color);
+            background: none;
             border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        .expand-btn i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
         }
 
-        .card-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #007bff;
+        .expand-btn.active i {
+            transform: rotate(180deg);
         }
 
-        .card-body {
-            background-color: #f8f9fa;
-            padding: 20px;
+        .full-profile {
+            display: none;
+            padding-top: 1rem;
         }
 
-        .text-muted {
-            color: #6c757d !important;
-            font-size: 16px;
+        .full-profile.show {
+            display: block;
         }
 
-        .speaker-details ul {
-            padding-left: 20px;
-            list-style: none;
-        }
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 2rem 0;
+            }
 
-        .speaker-details ul li {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
+            .page-header h1 {
+                font-size: 2rem;
+            }
 
-        .speaker-details ul li::before {
-            content: "•";
-            color: #007bff;
-            margin-right: 10px;
-        }
+            .speaker-image {
+                height: 250px;
+            }
 
-        .contact p {
-            font-size: 14px;
-            color: #555;
-        }
+            .speaker-info {
+                padding: 1.5rem;
+            }
 
-        .contact p i {
-            margin-right: 10px;
-            color: #007bff;
+            .speaker-name {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
-
 <body>
-    <section class="speakers py-5">
-        <div class="container">
-            <h2>Keynote Speakers</h2>
-            <div class="row justify-content-center">
-                <!-- Speaker 1 -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">Dr. Odelu Vanga</h3>
-                            <p class="text-muted">Assistant Professor, IIIT Sri City</p>
-                            <hr>
-                            <div class="speaker-details">
-                                <h4 class="h5 mb-3">Expertise & Achievements</h4>
-                                <ul>
-                                    <li>PhD in Theoretical Computer Science, IIT Kharagpur</li>
-                                    <li>Outstanding Potential for Excellence in Research and Academics (OPERA) Award</li>
-                                    <li>Korean Research Fellowship (KRF) Outstanding Young Foreign Scholar</li>
-                                    <li>Research focus: Access Control and User Authentication Protocols</li>
-                                </ul>
-                                <div class="contact mt-3">
-                                    <p><i class="bi bi-envelope"></i> odelu.vanga@iiits.in</p>
-                                    <p><i class="bi bi-telephone"></i> +91-73064 73364</p>
+    <header class="page-header">
+        <div class="container text-center">
+            <h1>Keynote Speakers</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row g-4">
+            <!-- Bharathi Yogaraj -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="assets/img/keynote1.jpg" alt="Bharathi Yogaraj">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Bharathi Yogaraj</h2>
+                        <div class="speaker-title">Product Lead, MathWorks</div>
+                        
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Keynote Topic</h4>
+                            <p>Deep Learning Deployment: Challenges and Solutions</p>
+                        </div>
+
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Abstract</h4>
+                            <div class="abstract-content">
+                                Deploying deep learning (DL) technologies involves several challenges, including the complexity and scale of models, which demand significant computational resources and optimization for real-world use...
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    This often results in higher costs and energy consumption, raising sustainability concerns. Large datasets needed for training introduce data privacy, security, and ethical issues. Ensuring model interpretability and transparency is vital for trust in critical applications like healthcare and autonomous systems. Additionally, the rapid advancement of DL can outpace existing infrastructure and regulatory frameworks, creating a gap between technology and practical implementation. Overcoming these challenges requires a multidisciplinary approach that combines technological innovation with policy-making and ethical oversight.
                                 </div>
                             </div>
                         </div>
+
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Professional Background</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>Leads Vision and Deep Learning HDL group at MathWorks</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Bachelor's in Electronics and Communication from JNNCE(VTU)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <div>Expertise in HDL design and deep learning deployment</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-history"></i>
+                                <div>Previous experience at Uurmi Systems and Vrinda technologies</div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@mathworks.com</span>
+                            </div>
+                        </div>
+                        -->
                     </div>
                 </div>
+            </div>
 
-                <!-- Speaker 2 -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">Prof. V Kamakshi Prasad</h3>
-                            <p class="text-muted">Senior Professor, JNTUH</p>
-                            <hr>
-                            <div class="speaker-details">
-                                <h4 class="h5 mb-3">Expertise & Achievements</h4>
-                                <ul>
-                                    <li>PhD from IIT Madras</li>
-                                    <li>Telangana State Teacher Award 2020</li>
-                                    <li>31 years of teaching and research experience</li>
-                                    <li>Research areas: Quantum Computing, ML, Speech & Image Processing</li>
-                                </ul>
-                                <div class="contact mt-3">
-                                    <p><i class="bi bi-envelope"></i> kamakshiprasad@jntuh.ac.in</p>
-                                    <p><i class="bi bi-telephone"></i> 040 23158662 Ext. 4444</p>
+            <!-- Dr. Odelu Vanga -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="assets/img/keynote2.png" alt="Dr. Odelu Vanga">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Dr. Odelu Vanga</h2>
+                        <div class="speaker-title">Assistant Professor, IIIT Sri City</div>
+                        
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Focus</h4>
+                            <p>Cryptography, Network Security, and Blockchain Technology</p>
+                        </div>
+
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Profile</h4>
+                            <div class="abstract-content">
+                                Currently working as an Assistant Professor (Grade-I) in the Department of Computer Science and Engineering at IIIT Sri City...
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    Prior to this, worked as an Assistant Professor at BITS Pilani, Hyderabad Campus, and as a Research Professor at Korea University, South Korea. Has extensive experience in theoretical computer science, cryptography, and network security. Published over 70 papers in international journals and conferences, and actively contributes to academic development through various roles including organizing chair and track chair for international conferences.
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Notable Achievements</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-star"></i>
+                                <div>IEEE Senior Member (2022)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>World's Top 2% Scientists Rankings (Stanford University)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-medal"></i>
+                                <div>Korean Research Fellowship (KRF-2017)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>GATE All India Fifth Rank (99.82%)</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>odelu.vanga@iiits.in</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-73064 73364</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</body>
 
-</html>
+            <!-- Prof. V Kamakshi Prasad -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="assets/img/keynote3.png" alt="Prof. V Kamakshi Prasad">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Prof. V Kamakshi Prasad</h2>
+                        <div class="speaker-title">Senior Professor, JNTUH</div>
+                        
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Areas</h4>
+                            <p>Quantum Computing, Machine Learning, and Speech Processing</p>
+                        </div>
+
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Profile</h4>
+                            <div class="abstract-content">
+                                Senior Professor with 31 years of teaching and research experience at JNTUH College of Engineering Science & Technology...
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    Throughout his distinguished career, he has held various administrative roles including Controller of Exams, Director of Innovative Technologies, and Director of Evaluation. His expertise spans multiple domains including Quantum Computing, Machine Learning, Data Mining, and Speech Processing. He has made significant contributions to academic development through supervision of 29 Ph.D. candidates and active involvement in various academic councils and governing bodies.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Key Highlights</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>Telangana State Teacher Award 2020</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-item">
+                                    <i class="fas fa-star"></i>
+                                    <div>IEEE Senior Member (2022)</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-paperclip"></i>
+                                    <div>Published 70+ papers in international journals and conferences</div>
+                                </div>
+                            </div>
+    
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>odelu.vanga@iiits.in</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div> <!-- End of row -->
+        </div> <!-- End of container -->
+    
+        <!-- Footer (optional) -->
+        <footer class="text-center py-4">
+            <p>&copy; 2025 ICAITPR. All Rights Reserved.</p>
+        </footer>
+    
+        <!-- JavaScript files -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script>
+            // Script to toggle the "Read more" functionality
+            const expandBtns = document.querySelectorAll('.expand-btn');
+            expandBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const fullProfile = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    fullProfile.classList.toggle('show');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
