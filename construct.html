@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,186 +38,157 @@
         @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@500&family=Merriweather:wght@300&display=swap');
     </style> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    
+
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --text-color: #2c3e50;
-            --light-bg: #f8f9fa;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #4299e1;
+            --text-color: #2d3748;
+            --light-bg: #f7fafc;
+            --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: var(--text-color);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f6f6f8 0%, #f0f2f5 100%);
+            line-height: 1.4;
         }
 
-        .page-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-            margin-bottom: 3rem;
+        .stupid-spacing {
+            margin-top: 5rem !important;
+        }
+
+        .section-title {
             position: relative;
-            overflow: hidden;
+            padding-bottom: 10px;
+            font-size: 1.8rem !important;
+            margin-bottom: 1rem !important;
+            color: var(--primary-color);
+            text-align: center;
+            font-weight: 600;
         }
 
-        .page-header::after {
+        .section-title::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), transparent);
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stupid-spacing{
-            margin-top: 10rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
         }
 
         .speaker-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 1rem;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .speaker-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
         .speaker-image {
             position: relative;
-            height: 300px;
-            background: linear-gradient(45deg, #3498db, #2c3e50);
+            height: 200px !important;
+            background: white;
             overflow: hidden;
         }
 
         .speaker-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-            transition: transform 0.3s ease;
-        }
-
-        .speaker-card:hover .speaker-image img {
-            transform: scale(1.05);
+            object-fit: contain !important;
+            padding: 20px;
+            transition: all 0.3s ease;
         }
 
         .speaker-info {
-            padding: 2rem;
+            padding: 1rem !important;
         }
 
         .speaker-name {
             color: var(--primary-color);
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
-        .speaker-title {
-            color: var(--accent-color);
-            font-size: 1.1rem;
+        .speaker-title, .speaker-subtitle {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .speaker-subtitle {
+            color: var(--text-color);
+            opacity: 0.8;
         }
 
         .speaker-topic {
             background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        .speaker-topic h4 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            margin: 0.75rem 0;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .abstract-section {
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(52, 152, 219, 0.05);
-            border-radius: 8px;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(66, 153, 225, 0.05);
+            border-radius: 0.75rem;
             border-left: 4px solid var(--accent-color);
         }
 
-        .abstract-section h4 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .abstract-content {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #505b6b;
-            text-align: justify;
-        }
-
-        .achievements {
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: var(--light-bg);
-            border-radius: 8px;
-        }
-
-        .achievements h4 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .achievements{
+            padding-top: 0.75rem;
         }
 
         .achievement-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            background: var(--light-bg);
         }
 
         .achievement-item i {
             color: var(--accent-color);
-            margin-right: 1rem;
+            font-size: 1.1rem;
             margin-top: 0.25rem;
-            min-width: 20px;
         }
 
         .contact-info {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #eee;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
             margin-bottom: 0.5rem;
-            color: #505b6b;
-        }
-
-        .contact-item i {
-            color: var(--accent-color);
-            margin-right: 0.75rem;
-            width: 20px;
-            text-align: center;
+            color: var(--text-color);
         }
 
         .expand-btn {
@@ -228,128 +200,351 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            margin-top: 1rem;
-        }
-
-        .expand-btn i {
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .expand-btn.active i {
-            transform: rotate(180deg);
+            gap: 0.5rem;
         }
 
         .full-profile {
             display: none;
             padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
 
         .full-profile.show {
             display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .g-4 {
+            --bs-gutter-x: 1rem;
+            --bs-gutter-y: 1rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
         }
 
         @media (max-width: 768px) {
-            .page-header {
-                padding: 2rem 0;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
             .speaker-image {
-                height: 250px;
+                height: 180px !important;
             }
-
+            
             .speaker-info {
-                padding: 1.5rem;
+                padding: 0.75rem !important;
             }
-
+            
             .speaker-name {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
+
 <body>
     <header id="header">
         <div class="container d-flex align-items-center justify-content-between">
-    
-          <div class="logo" class="me-auto">
-            <a href="index.html">
-              <img src="./assets/img/sponsors/vardhaman.png" alt="" height="70">
-    
-            </a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="index.html">
-              <img src="./assets/img/logo.png" alt="" height="70">
-            </a>
-          </div>
-    
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link nav-link-ltr scrollto active" href="index.html#hero">Home</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  About
+
+            <div class="logo" class="me-auto">
+                <a href="index.html">
+                    <img src="./assets/img/sponsors/vardhaman.png" alt="" height="70">
+
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="index.html">
+                    <img src="./assets/img/logo.png" alt="" height="70">
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="index.html#about-icaitpr">About ICAITPR</a></li>
-                  <!--<li><a class="dropdown-item" href="index.html#about">About IEEE Hyderabad Section</a></li>-->
-                  <li><a class="dropdown-item" href="about_college.html">About College</a></li>
-                  <li><a class="dropdown-item" href="icaitpr22.html">About ICAITPR-2022</a></li>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link nav-link-ltr scrollto active" href="index.html#hero">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="index.html#about-icaitpr">About ICAITPR</a></li>
+                            <!--<li><a class="dropdown-item" href="index.html#about">About IEEE Hyderabad Section</a></li>-->
+                            <li><a class="dropdown-item" href="about_college.html">About College</a></li>
+                            <li><a class="dropdown-item" href="icaitpr22.html">About ICAITPR-2022</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="commitees.html">Committee</a></li>
+                    <!-- <li><a class="nav-link nav-link-ltr scrollto" href="#portfolio">Program</a></li> -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Call For Papers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <li><a class="dropdown-item" href="call_for_papers.html">Call for papers</a></li>
+                            <li><a class="dropdown-item"
+                                    href="https://forms.office.com/Pages/ResponsePage.aspx?id=ngJKCDUUvECCAYfsGyUfs0YpB2U2pptGmRA5bxLBvNpUNlFTQUY0NzhVWU1UNTBWS1JEN09JNTdWTi4u">Call
+                                    for reviewers</a></li>
+
+                            <li><a class="dropdown-item" href="conference_schedule.html">Conference Schedule</a></li>
+                            <li><a class="dropdown-item" href="index.html#services">List of Tracks</a></li>
+                            <li><a class="dropdown-item" href="instructionpage.html">Authors Guidelines
+                                </a></li>
+                            <li><a class="dropdown-item" href="construct.html">Workshops</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="construct.html">Speakers</a></li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="sponsers_and_patners.html">Sponsors and
+                            partners</a></li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="register.html">Registration</a></li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="index.html#dates">Important Dates</a></li>
+                    <li><a class="nav-link nav-link-ltr scrollto" href="index.html#contact">Contact</a></li>
+
                 </ul>
-              </li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="commitees.html">Committee</a></li>
-              <!-- <li><a class="nav-link nav-link-ltr scrollto" href="#portfolio">Program</a></li> -->
-    
-              <li class="nav-item dropdown">
-                <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Call For Papers
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  
-                  <li><a class="dropdown-item" href="call_for_papers.html">Call for papers</a></li>
-                  <li><a class="dropdown-item" href="https://forms.office.com/Pages/ResponsePage.aspx?id=ngJKCDUUvECCAYfsGyUfs0YpB2U2pptGmRA5bxLBvNpUNlFTQUY0NzhVWU1UNTBWS1JEN09JNTdWTi4u">Call for reviewers</a></li>
-    
-                  <li><a class="dropdown-item" href="conference_schedule.html">Conference Schedule</a></li>
-                  <li><a class="dropdown-item" href="index.html#services">List of Tracks</a></li>
-                  <li><a class="dropdown-item" href="instructionpage.html">Authors Guidelines
-                    </a></li>
-                  <li><a class="dropdown-item" href="construct.html">Workshops</a></li>
-    
-                </ul>
-              </li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="construct.html">Speakers</a></li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="sponsers_and_patners.html">Sponsors and partners</a></li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="register.html">Registration</a></li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="index.html#dates">Important Dates</a></li>
-              <li><a class="nav-link nav-link-ltr scrollto" href="index.html#contact">Contact</a></li>
-    
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav><!-- .navbar -->
-    
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
         </div>
-      </header>
-      <footer class="text-center py-12">
-            <p>&copy; 2025 ICAITPR. All Rights Reserved.</p>
-        </footer>
-      <div class="stupid-spacing"></div>
-    <div class="container">
+    </header>
+    <footer class="text-center py-12">
+        <p>&copy; 2025 ICAITPR. All Rights Reserved.</p>
+    </footer>
+    <div class="stupid-spacing"></div>
+        <h2 class="section-title">Distinguished Guests and Invitees</h2>
+        <div class="row g-4 mb-3">
+            <!-- balakista reddy -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image" style="height: 250px;">
+                        <img src="assets/img/speaker1.png" alt="Balakista Reddy">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Prof. Balakista Reddy</h2>
+                        <div class="speaker-title">Chairman, Telangana State Council of Higher Education (TSCHE)</div>
+                        
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Areas</h4>
+                            <p>Legal Studies, International Studies, Higher Education Policy, Academic Administration</p>
+                        </div>
+            
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Profile</h4>
+                            <div class="abstract-content">
+                                Prof. Balakista Reddy is an eminent academician, legal expert, and a distinguished figure in the field of higher education and legal studies. Currently serving as the Chairman of the Telangana State Council of Higher Education (TSCHE), he has demonstrated exceptional leadership in shaping educational policies.
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    With a rich legacy of academic and administrative excellence, Prof. Reddy has been instrumental in shaping policies and initiatives to enhance the quality of higher education in Telangana. His scholarly contributions extend across various domains of legal and international studies, making him a respected voice in academia.
+            
+                                    As Chairman of TSCHE, he has been at the forefront of driving reforms and fostering innovation in the state's higher education system. His vision for an inclusive and robust education system has led to significant improvements in academic standards and educational opportunities for students across Telangana.
+            
+                                    Prof. Reddy's expertise in legal studies, combined with his deep understanding of educational administration, has enabled him to implement effective policies that bridge the gap between academic theory and practical implementation. His leadership style emphasizes innovation, quality, and accessibility in higher education.
+            
+                                    His unwavering commitment to empowering youth through education has made him an inspiring figure in the academic community. Through his various roles and responsibilities, he continues to contribute significantly to the advancement of higher education in the region.
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Professional Excellence</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-university"></i>
+                                <div>Chairman, Telangana State Council of Higher Education</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-gavel"></i>
+                                <div>Distinguished Legal Expert and Academician</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-book"></i>
+                                <div>Significant Contributions to Legal and International Studies</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users"></i>
+                                <div>Leader in Higher Education Policy Development</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-star"></i>
+                                <div>Driving Force Behind Educational Reforms in Telangana</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Advocate for Innovation and Quality in Academia</div>
+                            </div>
+                        </div>
+            
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <span>Telangana State Council of Higher Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Prof. V Kamakshi Prasad -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image" style="height: 250px;">
+                        <img src="assets/img/keynote3.png" alt="Prof. V Kamakshi Prasad">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Prof. V Kamakshi Prasad</h2>
+                        <div class="speaker-title">Senior Professor, Department of Computer Science & Engineering</div>
+                        <div class="speaker-subtitle">JNTUH College of Engineering Science & Technology, Hyderabad</div>
+            
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Areas</h4>
+                            <p>Quantum Computing, Machine Learning, Data Mining, Speech & Image Processing, Theoretical Computer Science</p>
+                        </div>
+            
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Profile</h4>
+                            <div class="abstract-content">
+                                Professor V. Kamakshi Prasad is a distinguished academic with over three decades of exemplary service in teaching, research, and academic administration at JNTUH College of Engineering Science & Technology. His commitment to academic excellence and innovative research has significantly shaped the computer science department's growth and development.
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    Throughout his remarkable 31-year journey in academia, Professor Prasad has demonstrated exceptional leadership in various administrative capacities. His academic journey commenced with a B.Tech. from KLCE, followed by an M.Tech. from Andhra University College of Engineering, and culminated in a Ph.D. from the prestigious IIT Madras. Since joining JNTU as an Assistant Professor in 1992, he has progressively advanced through the academic ranks, being promoted to Associate Professor (2003), Professor (2006), and Senior Professor (2016).
+            
+                                    His administrative acumen is evidenced by his successful tenure in numerous key positions, including Additional Controller of Examinations, TEQIP-II Coordinator, Head of the CSE Department, Controller of Examinations, Director of Innovative Technologies, and Director of Evaluation. Currently, he serves as the Chairperson of the Board of Studies for CSE and CSE allied branches, where he continues to drive curriculum innovation and academic excellence.
+            
+                                    Professor Prasad's influence extends beyond JNTUH through his active participation in various academic bodies. He serves as a member of multiple Boards of Studies, Academic Councils, and Governing Bodies across autonomous and non-autonomous institutions. His expertise was recognized at the national level when he was appointed as the Visitor's (President of India) nominee for the Executive Council of MANUU, Hyderabad, and as a board member of the School of Computer and Information Sciences at Hyderabad Central University.
+            
+                                    His research supervision has been particularly noteworthy, having guided 29 Ph.D. candidates and 3 MS degree holders to successful completion, with 8 more doctoral scholars currently under his mentorship. In recognition of his outstanding contributions to education and research, he was honored with the prestigious Telangana State Teacher Award for the year 2020.
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Professional Excellence</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Distinguished Academic Background: B.Tech. (KLCE), M.Tech. (AU), Ph.D. (IIT Madras)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>Recipient of Telangana State Teacher Award (2020) for Outstanding Contributions to Education</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users"></i>
+                                <div>Chairperson, Board of Studies for CSE and Allied Branches at JNTUH</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <div>Successful Supervision of 29 Ph.D. Scholars and 3 MS Degree Holders</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-university"></i>
+                                <div>Member of Multiple Academic Councils and Executive Bodies across Universities</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-star"></i>
+                                <div>President's Nominee for MANUU Executive Council</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>31 Years of Progressive Academic Leadership and Research Excellence</div>
+                            </div>
+                        </div>
+            
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>kamakshiprasad@jntuh.ac.in</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <span>Department of CSE, JNTUH College of Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- S Kartikay -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image" style="height: 250px;">
+                        <img src="assets/img/speaker3.png" alt="S Kartikay">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Somayajula Kartikay Ayalh</h2>
+                        <div class="speaker-title">MassMutual, Director of Technology Delivery</div>
+                        
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-laptop-code"></i> Areas of Expertise</h4>
+                            <p>IT Strategy, Digital Transformation, Cloud Computing, AI/IoT, Agile-Scrum, DevOps, Process Optimization</p>
+                        </div>
+            
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Profile</h4>
+                            <div class="abstract-content">
+                                An accomplished IT Strategist with over 20 years of experience in driving multi-million-dollar IT, digital, and cloud transformation programs. Kartik has established a strong track record in building technology units, global capability centers, and automation centers of excellence for multinational corporations.
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    In his current role as Director of Technology Delivery at MassMutual, Kartik oversees policy administration projects across Mainframe, Java, Analytics, and SAP technologies. He has been instrumental in pioneering significant changes in policy administration product suites and represented MassMutual India on the BFSI Consortium.
+            
+                                    His expertise spans legacy system modernization, leveraging digital, cloud, AI, IoT, big data, and analytics to achieve process automation and operational efficiency. As a Certified Scrum Master and Agile practitioner, he specializes in strategic consulting for early automation and shift-left goals.
+            
+                                    Kartik has contributed significantly to product vision and go-to-market strategies, leading the development of user-friendly, industry-leading digital products that achieved notable market success. His process optimization expertise through Six Sigma and Lean methodologies has established new benchmarks in delivery excellence.
+            
+                                    Beyond his professional achievements, Kartik is actively involved in CSR activities focused on student empowerment and skill development. His leadership philosophy, inspired by Jack Welch's wisdom, emphasizes personal growth and the development of others.
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Professional Excellence</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>20+ Years of IT Strategy and Transformation Leadership</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-certificate"></i>
+                                <div>Certified Scrum Master and Agile Practitioner</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-cloud"></i>
+                                <div>Expert in Digital and Cloud Transformation</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-cogs"></i>
+                                <div>Six Sigma and Lean Methodology Specialist</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users-cog"></i>
+                                <div>BFSI Consortium Representative for MassMutual India</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <div>Active Contributor to CSR and Student Empowerment Initiatives</div>
+                            </div>
+                        </div>
+            
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <span>MassMutual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="section-title">Keynote Speakers</h2>
         <div class="row g-4">
             <!-- Bharathi Yogaraj -->
             <div class="col-lg-4">
                 <div class="speaker-card">
-                    <div class="speaker-image">
+                    <div class="speaker-image" style="height: 250px;">
                         <img src="assets/img/keynote1.jpg" alt="Bharathi Yogaraj">
                     </div>
                     <div class="speaker-info">
                         <h2 class="speaker-name">Bharathi Yogaraj</h2>
                         <div class="speaker-title">Product Lead, MathWorks</div>
-                        
+
                         <div class="speaker-topic">
                             <h4><i class="fas fa-chalkboard-teacher"></i> Keynote Topic</h4>
                             <p>Deep Learning Deployment: Challenges and Solutions</p>
@@ -358,10 +553,21 @@
                         <div class="abstract-section">
                             <h4><i class="fas fa-file-alt"></i> Abstract</h4>
                             <div class="abstract-content">
-                                Deploying deep learning (DL) technologies involves several challenges, including the complexity and scale of models, which demand significant computational resources and optimization for real-world use...
+                                Bharathi Yogaraj , Product lead at MathWorks , leads the Vision and Deep Learning HDL
+                                group. Her team focuses on Vision IP development and deployment of Deep learning-based
+                                vision applications onto FPGAs and SoCs.
                                 <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
                                 <div class="full-profile">
-                                    This often results in higher costs and energy consumption, raising sustainability concerns. Large datasets needed for training introduce data privacy, security, and ethical issues. Ensuring model interpretability and transparency is vital for trust in critical applications like healthcare and autonomous systems. Additionally, the rapid advancement of DL can outpace existing infrastructure and regulatory frameworks, creating a gap between technology and practical implementation. Overcoming these challenges requires a multidisciplinary approach that combines technological innovation with policy-making and ethical oversight.
+                                    Bharathi has a Bachelor's in Electronics and
+                                    Communication from JNNCE(VTU). Her research interests include optimized HDL design,
+                                    deep
+                                    learning deployment, image processing, and heterogeneous system integration. Prior
+                                    to
+                                    joining MathWorks, Bharathi worked at Uurmi Systems and Vrinda technologies,
+                                    primarily
+                                    focused on design and development of high-speed systems and HDL IPs for
+                                    communication
+                                    and vision applications.
                                 </div>
                             </div>
                         </div>
@@ -396,53 +602,141 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Vijender BusiReddy -->
+            <div class="col-lg-4">
+                <div class="speaker-card">
+                    <div class="speaker-image" style="height: 250px;">
+                        <img src="assets/img/keynote4.jpg" alt="Vijender Busi Reddy">
+                    </div>
+                    <div class="speaker-info">
+                        <h2 class="speaker-name">Vijender Busi Reddy</h2>
+                        <div class="speaker-title">Scientist, ISRO</div>
+            
+                        <div class="speaker-topic">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Focus</h4>
+                            <p>Deep Learning Applications in Remote Sensing</p>
+                        </div>
+            
+                        <div class="abstract-section">
+                            <h4><i class="fas fa-file-alt"></i> Abstract</h4>
+                            <div class="abstract-content">
+                                Dr. Vijender Busi Reddy is a scientist at ISRO, specializing in deep learning applications for remote sensing images and security in wireless networks.
+                                <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
+                                <div class="full-profile">
+                                    His work focuses on developing real-time object detection methods in remote sensing images and trust-based security models for Ad-Hoc wireless networks and IoT. He has made significant contributions to the field through his research and publications in prestigious journals and conferences, including IEEE and Inderscience. His expertise spans across artificial intelligence, network security, and Internet of Things, and he regularly shares his knowledge through lectures on security, AI, privacy, and IoT to trainees and faculty.
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="achievements">
+                            <h4><i class="fas fa-award"></i> Professional Background</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>Scientist at ISRO since 2008</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Ph.D. in Computer Science from University of Hyderabad (2018)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>M.Tech from IIT Roorkee (2006)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-award"></i>
+                                <div>IEEE Senior Member</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>Best Project Achievement Award, ISRO (2009)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users"></i>
+                                <div>Life Member of Astronomical Society of India (ASI)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-history"></i>
+                                <div>Former Research Engineer at HP R&D Labs, Bangalore</div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@isro.gov.in</span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
             <!-- Dr. Odelu Vanga -->
             <div class="col-lg-4">
                 <div class="speaker-card">
-                    <div class="speaker-image">
+                    <div class="speaker-image" style="height: 250px;">
                         <img src="assets/img/keynote2.png" alt="Dr. Odelu Vanga">
                     </div>
                     <div class="speaker-info">
                         <h2 class="speaker-name">Dr. Odelu Vanga</h2>
-                        <div class="speaker-title">Assistant Professor, IIIT Sri City</div>
-                        
+                        <div class="speaker-title">Assistant Professor (Grade-I)</div>
+                        <div class="speaker-subtitle">Department of Computer Science and Engineering, IIIT Sri City, Andhra Pradesh</div>
+            
                         <div class="speaker-topic">
                             <h4><i class="fas fa-chalkboard-teacher"></i> Research Focus</h4>
-                            <p>Cryptography, Network Security, and Blockchain Technology</p>
+                            <p>Cryptography, Network Security, Internet of Things, and Blockchain Technology</p>
                         </div>
-
+            
                         <div class="abstract-section">
                             <h4><i class="fas fa-file-alt"></i> Profile</h4>
                             <div class="abstract-content">
-                                Currently working as an Assistant Professor (Grade-I) in the Department of Computer Science and Engineering at IIIT Sri City...
+                                Dr. Odelu Vanga is a distinguished academic and researcher at IIIT Sri City, recognized among the World's Top 2% Scientists by Stanford University. His expertise spans theoretical computer science, cryptography, and network security, with significant contributions to academic research and development.
                                 <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
                                 <div class="full-profile">
-                                    Prior to this, worked as an Assistant Professor at BITS Pilani, Hyderabad Campus, and as a Research Professor at Korea University, South Korea. Has extensive experience in theoretical computer science, cryptography, and network security. Published over 70 papers in international journals and conferences, and actively contributes to academic development through various roles including organizing chair and track chair for international conferences.
+                                    Dr. Vanga's academic journey reflects a remarkable commitment to excellence in computer science and mathematics. He completed his Ph.D. in Theoretical Computer Science, specializing in Cryptography and Network Security, from IIT Kharagpur, complemented by an M.Tech. in Computer Science and Data Processing from the same institution. His strong foundation in mathematics is evidenced by his M.Sc. in Applied Mathematics from Kakatiya University.
+            
+                                    His professional trajectory includes prestigious positions at leading institutions. Prior to his current role at IIIT Sri City, he served as an Assistant Professor at BITS Pilani, Hyderabad Campus, and as a Research Professor at Korea University, South Korea. He also contributed to the Department of Mathematics at RGUKT, Basar.
+            
+                                    In the realm of academic leadership, Dr. Vanga has served as the Organizing Chair of the International Conference on Mining Intelligence and Knowledge Exploration (MIKE-2019) and as Track Chair for Intelligent Security Systems (MIKE-2017 & 2018). His editorial contributions include serving as Guest Editor for the Topical Issue on Security and Privacy 2020 in SN Computer Science, Springer. He actively participates in the academic community as a reviewer for numerous SCI-indexed journals, including prestigious ACM/IEEE Transactions, and serves on Technical Program Committees for international conferences.
                                 </div>
                             </div>
                         </div>
-
+            
                         <div class="achievements">
-                            <h4><i class="fas fa-award"></i> Notable Achievements</h4>
+                            <h4><i class="fas fa-award"></i> Distinguished Recognition</h4>
                             <div class="achievement-item">
                                 <i class="fas fa-star"></i>
                                 <div>IEEE Senior Member (2022)</div>
                             </div>
                             <div class="achievement-item">
                                 <i class="fas fa-trophy"></i>
-                                <div>World's Top 2% Scientists Rankings (Stanford University)</div>
+                                <div>Listed in World's Top 2% Scientists Rankings by Stanford University (2022-Present)</div>
                             </div>
                             <div class="achievement-item">
                                 <i class="fas fa-medal"></i>
-                                <div>Korean Research Fellowship (KRF-2017)</div>
+                                <div>Outstanding Young Foreign Scholar - Korean Research Fellowship (KRF-2017)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-award"></i>
+                                <div>Outstanding Potential for Excellence in Research and Academics (OPERA) - BITS Pilani</div>
                             </div>
                             <div class="achievement-item">
                                 <i class="fas fa-graduation-cap"></i>
-                                <div>GATE All India Fifth Rank (99.82%)</div>
+                                <div>GATE All India Fifth Rank (99.82 percentile) in Mathematics</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-certificate"></i>
+                                <div>CSIR-JRF in Mathematical Sciences (2008)</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-book"></i>
+                                <div>Published over 70 papers in international journals and conferences</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-users"></i>
+                                <div>Active reviewer for ACM/IEEE Transactions and international conferences</div>
                             </div>
                         </div>
-
+            
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
@@ -452,72 +746,98 @@
                                 <i class="fas fa-phone"></i>
                                 <span>+91-73064 73364</span>
                             </div>
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <span>Department of CSE, IIIT Sri City, Chittoor</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Prof. V Kamakshi Prasad -->
+            <!-- Pawan Lingras -->
             <div class="col-lg-4">
                 <div class="speaker-card">
-                    <div class="speaker-image">
-                        <img src="assets/img/keynote3.png" alt="Prof. V Kamakshi Prasad">
+                    <div class="speaker-image" style="height: 250px;">
+                        <img src="assets/img/keynote5.png" alt="Pawan Lingras">
                     </div>
                     <div class="speaker-info">
-                        <h2 class="speaker-name">Prof. V Kamakshi Prasad</h2>
-                        <div class="speaker-title">Senior Professor, JNTUH</div>
+                        <h2 class="speaker-name">Dr. Pawan Lingras</h2>
+                        <div class="speaker-title">Professor, Department of Mathematics and Computing Science</div>
+                        <div class="speaker-subtitle">Saint Mary's University, Halifax, Nova Scotia, Canada</div>
+                        <div class="speaker-subtitle">Director, Master of Science in Computing and Data Analytics Program</div>
                         
                         <div class="speaker-topic">
-                            <h4><i class="fas fa-chalkboard-teacher"></i> Research Areas</h4>
-                            <p>Quantum Computing, Machine Learning, and Speech Processing</p>
+                            <h4><i class="fas fa-microscope"></i> Research Areas</h4>
+                            <p>Data Mining, Artificial Intelligence, Machine Learning, Big Data, Wearable Technology, Image Processing, Intelligent Transportation Systems, Evolutionary Algorithms</p>
                         </div>
-
+            
                         <div class="abstract-section">
                             <h4><i class="fas fa-file-alt"></i> Profile</h4>
                             <div class="abstract-content">
-                                Senior Professor with 31 years of teaching and research experience at JNTUH College of Engineering Science & Technology...
+                                Dr. Pawan Lingras is a distinguished academic with extensive experience in computing science and data analytics. His research and teaching have significantly impacted the field of computer science and data analytics, earning him multiple prestigious awards and grants.
                                 <button class="expand-btn">Read more <i class="fas fa-chevron-down"></i></button>
                                 <div class="full-profile">
-                                    Throughout his distinguished career, he has held various administrative roles including Controller of Exams, Director of Innovative Technologies, and Director of Evaluation. His expertise spans multiple domains including Quantum Computing, Machine Learning, Data Mining, and Speech Processing. He has made significant contributions to academic development through supervision of 29 Ph.D. candidates and active involvement in various academic councils and governing bodies.
+                                    Dr. Lingras completed his Bachelor of Technology in Civil Engineering from IIT Bombay and pursued his graduate studies, including a Ph.D. in Computer Science, at the University of Regina, Saskatchewan, Canada. His academic career has been marked by significant achievements in research and teaching excellence.
+            
+                                    As a prolific researcher, he has authored over 210 research papers in international journals and conferences, co-authored three textbooks, and co-edited multiple volumes of research papers. His research has been consistently supported by the Natural Sciences and Engineering Research Council (NSERC) Discovery Grant for 30 years, along with various other funding programs.
+            
+                                    His international impact is evidenced by his roles as a visiting professor at Munich University of Applied Sciences and IIT Gandhinagar, and as a research supervisor at Institut Supérieur de Gestion de Tunis. He has delivered more than 45 invited talks at institutions worldwide, fostering international collaborations across the USA, UK, Hong Kong, China, and Tunisia.
+            
+                                    Dr. Lingras's dedication to teaching has been recognized through multiple awards, including the President's Award for Excellence in Research, the Father William A. Stewart, S.J., Medal for Excellence in Teaching, and the Faculty of Science Teaching Excellence Award.
                                 </div>
                             </div>
                         </div>
-
+            
                         <div class="achievements">
-                            <h4><i class="fas fa-award"></i> Key Highlights</h4>
+                            <h4><i class="fas fa-award"></i> Professional Excellence</h4>
+                            <div class="achievement-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>Ph.D. in Computer Science, University of Regina</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-book"></i>
+                                <div>Author of 210+ Research Papers and 3 Textbooks</div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <div>Secured $3.5M+ in Research Grants</div>
+                            </div>
                             <div class="achievement-item">
                                 <i class="fas fa-trophy"></i>
-                                <div>Telangana State Teacher Award 2020</div>
+                                <div>Multiple Teaching Excellence Awards</div>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-item">
-                                    <i class="fas fa-star"></i>
-                                    <div>IEEE Senior Member (2022)</div>
-                                </div>
-                                <div class="achievement-item">
-                                    <i class="fas fa-paperclip"></i>
-                                    <div>Published 70+ papers in international journals and conferences</div>
-                                </div>
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <div>45+ Invited Talks Worldwide</div>
                             </div>
-    
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>odelu.vanga@iiits.in</span>
-                                </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-globe"></i>
+                                <div>Extensive International Academic Collaborations</div>
+                            </div>
+                        </div>
+            
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <span>Department of Mathematics and Computing Science, Saint Mary's University</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Halifax, Nova Scotia, Canada</span>
                             </div>
                         </div>
                     </div>
                 </div>
-    
-            </div> <!-- End of row -->
+            </div>
+        </div>
+             <!-- End of row -->
         </div> <!-- End of container -->
-    
+
         <!-- Footer (optional) -->
         <footer class="text-center py-4">
             <p>&copy; 2025 ICAITPR. All Rights Reserved.</p>
         </footer>
-    
+
         <!-- JavaScript files -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
@@ -525,7 +845,7 @@
             // Script to toggle the "Read more" functionality
             const expandBtns = document.querySelectorAll('.expand-btn');
             expandBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const fullProfile = this.nextElementSibling;
                     const icon = this.querySelector('i');
                     fullProfile.classList.toggle('show');
@@ -534,6 +854,6 @@
                 });
             });
         </script>
-    </body>
-    </html>
-    
+</body>
+
+</html>
