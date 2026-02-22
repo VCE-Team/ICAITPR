@@ -12,48 +12,103 @@
 
 <body>
 
-<header id="header">
-  <div class="container d-flex align-items-center justify-content-between">
+ <header id="header">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/img/sponsors/newlogo-vardhaman.jpeg" height="60">
-      </a>
-      &nbsp;&nbsp;
-      <a href="index.html">
-        <img src="assets/img/logo.png" height="60">
-      </a>
+      <div class="logo" class="me-auto">
+        <a href="index.html">
+          <img src="assets/img/sponsors/newlogo-vardhaman.jpeg" alt="" height="70">
+
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="index.html">
+          <img src="./assets/img/logo.png" alt="" height="70">
+        </a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link nav-link-ltr scrollto active" href="#hero">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#about-icaitpr">About ICAITPR</a></li>
+              <!--<li><a class="dropdown-item" href="index.html#about">About IEEE Hyderabad Section</a></li>-->
+              <li><a class="dropdown-item" href="about_college.html">About College</a></li>
+              <li><a class="dropdown-item" href="icaitpr24.html">About ICAITPR-2024</a></li>
+              <li><a class="dropdown-item" href="icaitpr22.html">About ICAITPR-2022</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="commitees.html">Committee</a></li>
+          <!-- <li><a class="nav-link nav-link-ltr scrollto" href="#portfolio">Program</a></li> -->
+
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Call For Papers
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <li><a class="dropdown-item" href="call_for_papers.html">Call for papers</a></li>
+              <li><a class="dropdown-item" href="https://forms.office.com/pages/responsepage.aspx?id=ngJKCDUUvECCAYfsGyUfs5H1W4Mk1VxFun_M18T4WfNUQ1oxSjJMRkNUR0ZQNEFKVFJUVlVYR0NTNy4u&route=shorturl">Call for reviewers</a></li>
+
+              <li><a class="dropdown-item" href="conference_schedule.html">Conference Schedule</a></li>
+              <li><a class="dropdown-item" href="#services">List of Tracks</a></li>
+              <li><a class="dropdown-item" href="instructionpage.html">Authors Guidelines
+                </a></li>
+              <li><a class="dropdown-item" href="construct.html">Workshops</a></li>
+
+            </ul>
+          </li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="construct.html">Speakers</a></li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="sponsers_and_patners.html">Sponsors and partners</a></li>
+          <li><a class="nav-link nav-link-ltr active" href="brochure.html">Brochure</a></li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="register.html">Registration</a></li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="index.html#dates">Important Dates</a></li>
+          <li><a class="nav-link nav-link-ltr scrollto" href="index.html#contact">Contact</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
+  </header><!-- End Header -->
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="brochure.html" class="active">Brochure</a></li>
-        <li><a href="register.html">Registration</a></li>
-      </ul>
-    </nav>
 
-  </div>
-</header>
+<main id="main" style="margin-top:120px;">
 
-<main style="margin-top:120px;">
-  <div class="container text-center">
+  <section style="padding: 60px 0;">
+    <div class="container text-center">
 
-    <h2 class="mb-4">ICAITPR 2026 Conference Brochure</h2>
+      <div class="section-title">
+        <h2>ICAITPR 2026 Conference Brochure</h2>
+      </div>
 
-    <div class="shadow p-3 mb-5 bg-white rounded">
-      <img src="assets/ICAITPR 2026 Brochure (2).png"
-           class="img-fluid"
-           alt="ICAITPR Brochure">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <div class="card shadow p-3">
+            <img src="assets/ICAITPR 2026 Brochure (2).png"
+                 class="img-fluid"
+                 alt="ICAITPR Brochure">
+          </div>
+
+          <div class="mt-4">
+            <a href="assets/ICAITPR 2026 Brochure (2).png"
+               download
+               class="btn btn-primary btn-lg">
+               Download Brochure
+            </a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <a href="assets/ICAITPR 2026 Brochure (2).png"
-       download
-       class="btn btn-primary btn-lg">
-       Download Brochure
-    </a>
-
-  </div>
 </main>
 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
