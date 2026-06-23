@@ -77,11 +77,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
     margin:6px 0 !important;
 }
 
-/* REMOVE ALL EXTRA BR SPACES AUTOMATICALLY */
-#aboutvce br{
-    display:none;
-}
-
 /* Compact Section */
 #aboutvce{
     padding-top:20px !important;
@@ -117,11 +112,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 </style>
 </head>
 
-   <script>
+  <script>
 document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelectorAll("#aboutvce br + br").forEach(br => {
-        br.remove();   // removes only the second BR
+    document.querySelectorAll("#aboutvce p").forEach(function(p){
+
+        p.innerHTML = p.innerHTML.replace(
+            /<br\s*\/?>\s*<br\s*\/?>/gi,
+            "<br>"
+        );
+
+        p.innerHTML = p.innerHTML.replace(
+            /<BR>\s*<BR>/gi,
+            "<br>"
+        );
+
     });
 
 });
