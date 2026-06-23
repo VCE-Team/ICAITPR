@@ -55,25 +55,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 }
 
 /* Paragraphs */
+/* Paragraphs */
 #aboutvce p{
     font-size:19px !important;
-    line-height:1.5 !important;
-    margin-bottom:8px !important;
+    line-height:1.6 !important;
+    margin-bottom:12px !important;
 }
 
 /* Lists */
-#aboutvce ul,
-#aboutvce ol{
-    margin-top:0 !important;
-    margin-bottom:8px !important;
-    padding-left:25px;
-}
-
 #aboutvce ul li,
 #aboutvce ol li{
     font-size:19px !important;
-    line-height:1.5 !important;
-    margin-bottom:3px !important;
+    line-height:1.6 !important;
+    margin-bottom:6px !important;
+}
+
+/* Reduce huge gaps but keep one-line spacing */
+#aboutvce br{
+    content:"";
+    display:block;
+    margin:6px 0 !important;
 }
 
 /* REMOVE ALL EXTRA BR SPACES AUTOMATICALLY */
@@ -116,15 +117,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 </style>
 </head>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
+   <script>
+document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelectorAll("#aboutvce br").forEach(br => {
-        br.remove();
-    });
-
-    document.querySelectorAll("#aboutvce ul li").forEach(li => {
-        li.style.marginBottom = "4px";
+    document.querySelectorAll("#aboutvce br + br").forEach(br => {
+        br.remove();   // removes only the second BR
     });
 
 });
