@@ -25,72 +25,77 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 
 <style>
 
-/* Match ICAITPR pages */
+/* ===== Uniform Spacing Fix ===== */
+
+#aboutvce{
+    padding-top:15px !important;
+    padding-bottom:15px !important;
+}
 
 #aboutvce .container{
     max-width:1140px;
 }
 
 /* Main Title */
+.section-header{
+    margin-bottom:10px !important;
+}
+
 .section-header h2{
     font-size:38px !important;
     font-weight:700;
-    margin-bottom:10px !important;
+    margin:0 0 10px 0 !important;
 }
 
-/* Section Titles */
+/* Headings */
 #aboutvce h2{
     font-size:32px !important;
     font-weight:700;
-    margin-top:10px !important;
-    margin-bottom:10px !important;
+    margin:12px 0 8px 0 !important;
 }
 
-/* Sub Titles */
 #aboutvce h4{
     font-size:26px !important;
     font-weight:600;
-    margin-top:8px !important;
-    margin-bottom:8px !important;
+    margin:10px 0 6px 0 !important;
 }
 
-/* Paragraphs */
 /* Paragraphs */
 #aboutvce p{
     font-size:19px !important;
-    line-height:1.6 !important;
-    margin-bottom:12px !important;
+    line-height:1.45 !important;
+    margin:0 0 10px 0 !important;
 }
 
 /* Lists */
-#aboutvce ul li,
-#aboutvce ol li{
+#aboutvce ul,
+#aboutvce ol{
+    margin-bottom:10px !important;
+    padding-left:25px !important;
+}
+
+#aboutvce li{
     font-size:19px !important;
-    line-height:1.6 !important;
-    margin-bottom:6px !important;
+    line-height:1.45 !important;
+    margin-bottom:4px !important;
 }
 
-/* Reduce huge gaps but keep one-line spacing */
+/* Remove huge BR spacing */
 #aboutvce br{
-    content:"";
     display:block;
-    margin:6px 0 !important;
+    content:"";
+    margin:2px 0 !important;
 }
 
-/* Compact Section */
-#aboutvce{
-    padding-top:20px !important;
-    padding-bottom:20px !important;
-}
-
-.section-header{
-    margin-bottom:15px !important;
+/* Remove extra space after list items */
+#aboutvce li br{
+    display:none !important;
 }
 
 @media(max-width:768px){
 
     .section-header h2{
-        font-size:32px !important;
+        font-size:30px !important;
     }
 
     #aboutvce h2{
@@ -102,8 +107,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
     }
 
     #aboutvce p,
-    #aboutvce ul li,
-    #aboutvce ol li{
+    #aboutvce li{
         font-size:17px !important;
         line-height:1.4 !important;
     }
@@ -213,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     1. At least one of the authors of every accepted paper must register for the conference as author
                     and
                     present the paper in order for it to be included in the conference proceedings of ICAITPR
-                    2026.<BR><BR>
+                    2026.<BR><br>
 
                     2. If more than one author of an accepted paper wishes to attend the conference, all such authors
                     need
