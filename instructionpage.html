@@ -25,7 +25,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 
 <style>
 
-/* Match ICAITPR pages - Slightly Bigger */
+/* Match ICAITPR pages */
 
 #aboutvce .container{
     max-width:1140px;
@@ -35,41 +35,62 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 .section-header h2{
     font-size:38px !important;
     font-weight:700;
+    margin-bottom:10px !important;
 }
 
 /* Section Titles */
 #aboutvce h2{
     font-size:32px !important;
     font-weight:700;
-    margin-bottom:18px;
+    margin-top:10px !important;
+    margin-bottom:10px !important;
 }
 
 /* Sub Titles */
 #aboutvce h4{
     font-size:26px !important;
     font-weight:600;
-    margin-bottom:15px;
+    margin-top:8px !important;
+    margin-bottom:8px !important;
 }
 
 /* Paragraphs */
 #aboutvce p{
     font-size:19px !important;
-    line-height:1.9;
+    line-height:1.5 !important;
+    margin-bottom:8px !important;
 }
 
 /* Lists */
+#aboutvce ul,
+#aboutvce ol{
+    margin-top:0 !important;
+    margin-bottom:8px !important;
+    padding-left:25px;
+}
+
 #aboutvce ul li,
 #aboutvce ol li{
     font-size:19px !important;
-    line-height:1.9;
+    line-height:1.5 !important;
+    margin-bottom:3px !important;
 }
 
-/* Links */
-#aboutvce a{
-    color:#106eea;
+/* REMOVE ALL EXTRA BR SPACES AUTOMATICALLY */
+#aboutvce br{
+    display:none;
 }
 
-/* Mobile */
+/* Compact Section */
+#aboutvce{
+    padding-top:20px !important;
+    padding-bottom:20px !important;
+}
+
+.section-header{
+    margin-bottom:15px !important;
+}
+
 @media(max-width:768px){
 
     .section-header h2{
@@ -88,13 +109,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
     #aboutvce ul li,
     #aboutvce ol li{
         font-size:17px !important;
+        line-height:1.4 !important;
     }
 }
 
 </style>
-
 </head>
 
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll("#aboutvce br").forEach(br => {
+        br.remove();
+    });
+
+    document.querySelectorAll("#aboutvce ul li").forEach(li => {
+        li.style.marginBottom = "4px";
+    });
+
+});
+</script>
 
 <body>
 
